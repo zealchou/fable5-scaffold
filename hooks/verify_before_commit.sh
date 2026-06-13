@@ -7,7 +7,8 @@
 input=$(cat)
 cmd=$(printf '%s' "$input" | jq -r '.tool_input.command // empty' 2>/dev/null || echo "")
 
-if printf '%s' "$cmd" | grep -qE "git[[:space:]]+commit"; then
+stripped=$(printf '%s' "$cmd" | sed -E "s/\"[^\"]*\"|'[^']*'//g")
+if printf '%s' "$stripped" | grep -qE '(^|[;&|][[:space:]]*)git[[:space:]]+commit[[:space:]]'; then
 cat <<'EOF'
 ✅ commit 偵測 — 送出前過一遍：
 

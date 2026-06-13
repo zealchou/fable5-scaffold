@@ -84,8 +84,8 @@ These are all **advisory (nudge, never block)** — they just surface the right 
 ## 安裝 / Install
 
 ```bash
-git clone https://github.com/zealchou/fable-scaffold.git
-cd fable-scaffold
+git clone https://github.com/zealchou/fable5-scaffold.git
+cd fable5-scaffold
 ./install.sh      # 把 hook 註冊 merge 進 ~/.claude/settings.json（會先備份）
                   # Merges hook registration into ~/.claude/settings.json (backs up first)
 ```

@@ -39,7 +39,7 @@ for event, arr in list(hooks.items()):
         del hooks[event]
 with open(settings_path, "w") as f:
     json.dump(s, f, indent=2, ensure_ascii=False)
-print(f"✅ 已移除 {removed} 個 fable-scaffold hook 註冊")
+print(f"✅ 已移除 {removed} 個 fable5-scaffold hook 註冊")
 PYEOF
 
 echo "完成。開新 session 生效。"

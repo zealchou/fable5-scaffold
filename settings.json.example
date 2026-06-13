@@ -1,0 +1,17 @@
+{
+  "_comment": "手動安裝參考——把 hooks 區塊 merge 進你的 ~/.claude/settings.json。把 $HOME/fable-scaffold 改成你實際 clone 的路徑。或直接跑 ./install.sh 自動 merge。",
+  "hooks": {
+    "UserPromptSubmit": [
+      { "hooks": [ { "type": "command", "command": "bash $HOME/fable-scaffold/hooks/self_challenge_gate.sh" } ] },
+      { "hooks": [ { "type": "command", "command": "bash $HOME/fable-scaffold/hooks/asset_inventory_gate.sh" } ] },
+      { "hooks": [ { "type": "command", "command": "bash $HOME/fable-scaffold/hooks/ls_real_preflight.sh" } ] },
+      { "hooks": [ { "type": "command", "command": "bash $HOME/fable-scaffold/hooks/session_retro.sh" } ] }
+    ],
+    "PreToolUse": [
+      { "matcher": "Bash", "hooks": [ { "type": "command", "command": "bash $HOME/fable-scaffold/hooks/verify_before_commit.sh" } ] }
+    ],
+    "PostToolUse": [
+      { "matcher": "Bash", "hooks": [ { "type": "command", "command": "bash $HOME/fable-scaffold/hooks/restart_reminder.sh" } ] }
+    ]
+  }
+}

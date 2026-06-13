@@ -2,3 +2,7 @@
 *.bak
 *.bak.*
 *.swp
+
+# Claude Code 本地設定（個人覆寫，不進版控）/ Claude Code local settings
+.claude/
+.claude/settings.local.json

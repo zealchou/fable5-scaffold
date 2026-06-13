@@ -38,6 +38,33 @@
 
 ---
 
+## ⚠️ v1.0.0 已知問題 / Known Issue in v1.0.0
+
+**`verify_before_commit.sh` 在 v1.0.0 中有一個誤觸發問題：**
+
+當你執行含有 `git commit` 字面文字的指令時（例如查詢設定檔）：
+```bash
+grep "git commit" .git/hooks/verify_before_commit.sh
+```
+
+hook 會誤判你在執行 commit，並觸發 commit 訊息格式檢查。這個 bug 已在 **v1.0.1 中修復**（commit `e8f79ce`）。
+
+**如何修復**：
+- **推薦**：更新至 v1.0.1 或主分支最新版本（自動收到修復）
+- **手動修法**（一行）：編輯 `hooks/verify_before_commit.sh` 第 11 行，將 substring 搜尋改為位置感知搜尋，詳見[此修復](https://github.com/zealchou/fable5-scaffold/commit/e8f79ce)
+
+**v1.0.0 如何迴避**：避免執行含 `git commit` 字面文字的 grep 或字串搜尋
+
+---
+
+**Known issue in v1.0.0:**
+
+The `verify_before_commit.sh` hook has a false-positive trigger: any command containing the literal string "git commit" (e.g., searching config files) will be incorrectly identified as a commit attempt. **Fixed in v1.0.1** (commit `e8f79ce`).
+
+**How to fix**: Update to v1.0.1+ or apply the one-line patch in [this fix](https://github.com/zealchou/fable5-scaffold/commit/e8f79ce).
+
+---
+
 ## 為什麼需要這個（一個真實的小故事）/ Why This Exists (a true short story)
 
 做這個專案的時候，我寫了一個 hook，叫「**建新東西前先盤點現有的**」——因為重複造輪子是最常見的浪費。

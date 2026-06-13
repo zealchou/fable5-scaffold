@@ -35,6 +35,28 @@
 
 ---
 
+## 為什麼需要這個（一個真實的小故事）/ Why This Exists (a true short story)
+
+做這個專案的時候，我寫了一個 hook，叫「**建新東西前先盤點現有的**」——因為重複造輪子是最常見的浪費。
+
+然後，就在我**剛寫完這個 hook 的下一步**，我和協作的 AI 準備動手建兩個新工具，差點沒先盤點就開工——直到一句「這個你原本不是已經有了嗎？」加上一次真實的 `ls`，才發現那兩樣早就有功能更強的版本躺在那裡。
+
+連**剛寫完這條紀律的人**，下一秒都會忘。
+
+這就是為什麼這些紀律不能只躺在文件裡——要做成「在對的時機自動跳出來」的 hook。**文件會被忘記，hook 不會。**
+
+---
+
+While building this project, I wrote a hook that says "**inventory what exists before building something new**" — because reinventing the wheel is the most common waste.
+
+Then, the very next step after writing that hook, my AI collaborator and I were about to build two new tools — and almost started without inventorying first. It took one question — "don't you already have these?" — plus an actual `ls` to discover that stronger versions of both already existed.
+
+Even **the person who just wrote the rule** forgot it one step later.
+
+That's why these disciplines can't just live in a document — they have to become hooks that **fire automatically at the right moment.** Docs get forgotten. Hooks don't.
+
+---
+
 ## 核心理念 / Core Idea
 
 把模型的「內生思考」拆成「外部生命週期觸發點」。高階推理模型的可靠度，很大一部分來自它在回答前的內部「拆解 → 自我糾錯 → 驗證」。本專案的假設是：**這套內生流程，可以用 Claude Code 的 hook 在外部重建**，拆成 6 個生命週期環節，每個環節掛一個強制 hook。

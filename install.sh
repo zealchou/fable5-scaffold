@@ -50,8 +50,23 @@ with open(settings_path, "w") as f:
 print("✅ 已註冊 6 個 hook 進", settings_path)
 PYEOF
 
+# ── 安裝 skills（複製到 ~/.claude/skills/，不覆蓋現有同名）──
+SKILLS_DST="$HOME/.claude/skills"
+mkdir -p "$SKILLS_DST"
+for skill_dir in "$REPO_DIR"/skills/*/; do
+  [ -d "$skill_dir" ] || continue
+  name=$(basename "$skill_dir")
+  if [ -e "$SKILLS_DST/$name" ]; then
+    echo "⏭️  skill '$name' 已存在，跳過（不覆蓋你現有的）"
+  else
+    cp -R "$skill_dir" "$SKILLS_DST/$name"
+    echo "✅ 安裝 skill: /$name"
+  fi
+done
+
 echo ""
 echo "完成！下一步："
-echo "  1. 開一個新的 Claude Code session（hook 在 session 啟動時載入）"
-echo "  2. （可選）把 CLAUDE.md.template 挑你認同的併進你專案的 CLAUDE.md"
-echo "  3. 太囉嗦？編輯 $SETTINGS 移除個別 hook，或跑 ./uninstall.sh"
+echo "  1. 開一個新的 Claude Code session（hook + skill 都在啟動時載入）"
+echo "  2. 試試召喚 skill：/deep-work（多 agent 編排）、/adversarial-verify（對抗式驗證）"
+echo "  3. （可選）把 CLAUDE.md.template 挑你認同的併進你專案的 CLAUDE.md"
+echo "  4. 太囉嗦？編輯 $SETTINGS 移除 hook，或跑 ./uninstall.sh"

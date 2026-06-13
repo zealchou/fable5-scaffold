@@ -81,6 +81,24 @@ These are all **advisory (nudge, never block)** — they just surface the right 
 
 ---
 
+## 附帶 2 個 Skill / Two Bundled Skills
+
+hook 是被動提示，但 fable 5 工作流有些核心動作需要「**主動 spawn 子 agent**」——這是 hook 做不到的。所以另外附 2 個可召喚的 skill 補上這塊。
+Hooks are passive nudges, but some core moves in the fable-5 workflow require **actively spawning subagents** — which hooks can't do. Two callable skills are bundled to cover that.
+
+| Skill | 做什麼 / What it does |
+|---|---|
+| **`/deep-work`** | 多 agent 編排：規劃 → 對抗式反思 → 串行執行 → 整合驗證，給「會動很多地方」的複雜任務。<br>Multi-agent orchestration: plan → adversarial review → serial execute → synthesize — for complex tasks that touch many places. |
+| **`/adversarial-verify`** | 把你剛產出的結論/code，spawn 一個獨立 agent 去「找碴」，預設它有高機率漏抓。<br>Spawn an independent agent to *refute* what you just produced, assuming it's likely wrong. |
+
+> 這 2 個是給「還沒有更完整工具箱」的人的**入門款**。如果你已經有更強的編排/驗證 skill，把它們當起點就好。
+> These two are **entry-level** for those without a fuller toolkit yet. If you already have stronger orchestration/verify skills, treat these as a starting point.
+
+詳細方法論與 prompt 模板見 [`skills/deep-work/SKILL.md`](skills/deep-work/SKILL.md) 與 [`skills/adversarial-verify/SKILL.md`](skills/adversarial-verify/SKILL.md)。
+Full methodology and prompt templates in [`skills/deep-work/SKILL.md`](skills/deep-work/SKILL.md) and [`skills/adversarial-verify/SKILL.md`](skills/adversarial-verify/SKILL.md).
+
+---
+
 ## 安裝 / Install
 
 ```bash

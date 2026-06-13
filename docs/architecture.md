@@ -41,13 +41,13 @@ session 收尾
 | 3. 自述查證 | `hooks/ls_real_preflight.sh` | UserPromptSubmit |
 | 4. commit 前驗證 | `hooks/verify_before_commit.sh` | PreToolUse[Bash] |
 | 4. 重啟提示 | `hooks/restart_reminder.sh` | PostToolUse[Bash] |
+| 5. 多 agent 編排 | `skills/deep-work` + `skills/adversarial-verify` | 召喚 `/deep-work`、`/adversarial-verify` |
 | 6. 收尾結晶 | `hooks/session_retro.sh` | UserPromptSubmit（偵測收尾字眼）|
 
-> 環節 1（載入記憶）與環節 5（多 agent）刻意不附 hook：
-> - 環節 1 高度依賴你專案的記憶格式，給範本反而綁死你。`architecture.md` 留設計指引，你自己填。
-> - 環節 5 是工作模式不是機制——它靠的是你在 prompt 裡主動 spawn subagent 分工，hook 強制不來。
+> 環節 5 不附 hook，改用 **skill**：因為它需要「主動 spawn 子 agent」，hook 結構上做不到（hook 只能注入提示、不能開新 agent）。所以做成可召喚的 `/deep-work`（編排）與 `/adversarial-verify`（對抗驗證）。
+> 環節 1（載入記憶）刻意留白：它高度依賴你專案的記憶格式，給範本反而綁死你——下方留設計指引，你自己填。
 
-## 環節 5 多 agent 編排（手動模式說明）
+## 環節 5 多 agent 編排（已做成 skill，下為原理）
 
 難任務的標準分工，靠你在對話裡主動觸發：
 

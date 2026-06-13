@@ -42,4 +42,12 @@ with open(settings_path, "w") as f:
 print(f"✅ 已移除 {removed} 個 fable5-scaffold hook 註冊")
 PYEOF
 
+# ── 移除本專案安裝的 skills ──
+for name in deep-work adversarial-verify; do
+  if [ -d "$HOME/.claude/skills/$name" ]; then
+    rm -rf "$HOME/.claude/skills/$name"
+    echo "✅ 已移除 skill: /$name"
+  fi
+done
+
 echo "完成。開新 session 生效。"

@@ -5,6 +5,9 @@
 ![Shell](https://img.shields.io/badge/shell-bash-green)
 ![Bilingual](https://img.shields.io/badge/docs-繁中%20%2F%20EN-blue)
 
+> 🔧 **Hotfix v1.0.1（2026-06-13）** — 若你在 commit `e8f79ce` 之前 clone / fork，請更新。`verify_before_commit` hook 的偵測會誤觸 `grep "git commit" <file>` 這類**查詢**指令（advisory 級，不會卡死，只會誤噴一次提示）。一行修法見 [commit e8f79ce](https://github.com/zealchou/fable5-scaffold/commit/e8f79ce) 或 [Release v1.0.1](https://github.com/zealchou/fable5-scaffold/releases/tag/v1.0.1)。
+> 🔧 **Hotfix v1.0.1 (2026-06-13)** — If you cloned / forked before commit `e8f79ce`, please update. The `verify_before_commit` hook false-triggers on **query** commands like `grep "git commit" <file>` (advisory only — it won't block you, just emits one spurious prompt). One-line fix: [commit e8f79ce](https://github.com/zealchou/fable5-scaffold/commit/e8f79ce) or [Release v1.0.1](https://github.com/zealchou/fable5-scaffold/releases/tag/v1.0.1).
+
 > **用外部工程 scaffold 逼近 Fable-5 級工作流程。**
 > 把你的 Claude Code（Opus 4.8 或任何 model）包進一層「全生命週期推理 scaffold」，逼近高階模型的**工作流程嚴謹度**：開機載記憶 → 發言前強制自我質疑 → 動手前驗證前提 → 動手後接通驗證 → 收尾結晶。
 >
